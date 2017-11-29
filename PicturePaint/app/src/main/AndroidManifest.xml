@@ -31,7 +31,9 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".EditActivity"></activity>
+        <activity android:name=".EditActivity"
+            android:parentActivityName=".MainActivity"
+            />
     </application>
 
 </manifest>
