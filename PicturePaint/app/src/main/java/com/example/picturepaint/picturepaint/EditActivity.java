@@ -18,8 +18,8 @@ public class EditActivity extends AppCompatActivity implements ColorPickerDialog
 
     private ImageView mImageView;
     private String mCurrentPhotoPath;
-    private SeekBar brushSize;
-    private SeekBar brushTransparency;
+    private SeekBar mBrushSize;
+    private SeekBar mBrushTransparency;
     private int mCurrentColor;
 
     @Override
@@ -40,6 +40,11 @@ public class EditActivity extends AppCompatActivity implements ColorPickerDialog
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         mCurrentColor = Color.BLACK;
+
+        mBrushSize = (SeekBar)findViewById(R.id.brushSize);
+        mBrushSize.setProgress(25);
+        mBrushTransparency = (SeekBar)findViewById(R.id.brushTransparency);
+        mBrushTransparency.setProgress(0);
     }
 
     protected void pickColor(View view)
