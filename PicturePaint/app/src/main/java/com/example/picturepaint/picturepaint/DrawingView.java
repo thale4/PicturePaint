@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.text.TextPaint;
 import android.util.AttributeSet;
@@ -39,9 +40,7 @@ public class DrawingView extends android.support.v7.widget.AppCompatImageView
         drawPaint = new Paint();
 
         drawPaint.setColor(paintColor);
-
         drawPaint.setAntiAlias(true);
-        drawPaint.setStrokeWidth(20);
         drawPaint.setStyle(Paint.Style.STROKE);
         drawPaint.setStrokeJoin(Paint.Join.ROUND);
         drawPaint.setStrokeCap(Paint.Cap.ROUND);
@@ -53,6 +52,8 @@ public class DrawingView extends android.support.v7.widget.AppCompatImageView
     protected void onDraw(Canvas canvas) {
         //draw view
         canvas.drawBitmap(canvasBitmap, 0, 0, canvasPaint);
+        //Bitmap b = canvasBitmap.createScaledBitmap(canvasBitmap, canvas.getWidth(), canvas.getHeight(), false);
+        //canvas.drawBitmap(b, 0, 0, canvasPaint);
         canvas.drawPath(drawPath, drawPaint);
     }
 
@@ -96,15 +97,18 @@ public class DrawingView extends android.support.v7.widget.AppCompatImageView
         drawPaint.setColor(paintColor);
     }
 
+    public void setSize(int size){
+        drawPaint.setStrokeWidth(size);
+    }
+
+    public void setTransparency(int transparency){
+        drawPaint.setAlpha(transparency);
+    }
+
     public void setBitmap(Bitmap b){
         invalidate();
         canvasBitmap = b;
         canvasBitmap = canvasBitmap.copy(Bitmap.Config.ARGB_8888, true);
         drawCanvas = new Canvas(canvasBitmap);
-    }
-
-    public void setSize(int size){
-        drawPaint.setStrokeWidth(size);
-        Log.d("size", "view size: "+size);
     }
 }

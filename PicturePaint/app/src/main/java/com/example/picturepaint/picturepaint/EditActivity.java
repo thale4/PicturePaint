@@ -51,27 +51,36 @@ public class EditActivity extends AppCompatActivity implements ColorPickerDialog
         mBrushSize = (SeekBar)findViewById(R.id.brushSize);
         mBrushSize.setProgress(25);
         mBrushSize.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+              @Override
+              public void onStopTrackingTouch(SeekBar seekBar) {
+                  mImageView.setSize(seekBar.getProgress());
+              }
 
-                                                  @Override
-                                                  public void onStopTrackingTouch(SeekBar seekBar) {
-                                                      if(seekBar.getId() == R.id.brushSize){
-                                                          mImageView.setSize(seekBar.getProgress());
-                                                          Log.d("size", "progress size: "+seekBar.getProgress());
-                                                      }
-                                                  }
+              @Override
+              public void onStartTrackingTouch(SeekBar seekBar) {
+              }
+              @Override
+              public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+              }
+          });
 
-                                                  @Override
-                                                  public void onStartTrackingTouch(SeekBar seekBar) {
-                                                  }
-
-                                                  @Override
-                                                  public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                                                  }
-                                              });
         mImageView.setSize(mBrushSize.getProgress());
 
         mBrushTransparency = (SeekBar)findViewById(R.id.brushTransparency);
         mBrushTransparency.setProgress(0);
+        mBrushTransparency.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                mImageView.setTransparency(seekBar.getProgress());
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            }
+        });
     }
 
     protected void pickColor(View view)
