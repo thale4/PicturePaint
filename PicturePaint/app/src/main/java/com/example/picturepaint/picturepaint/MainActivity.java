@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    // Creates image file name with a simply time stamp
+    // Creates image file name with a simple time stamp
     protected File createImageFile() throws IOException {
         File pictureDirectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         // Create an image file name

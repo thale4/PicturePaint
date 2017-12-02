@@ -54,6 +54,7 @@ public class DrawingView extends android.support.v7.widget.AppCompatImageView
         canvas.drawBitmap(canvasBitmap, 0, 0, canvasPaint);
         //Bitmap b = canvasBitmap.createScaledBitmap(canvasBitmap, canvas.getWidth(), canvas.getHeight(), false);
         //canvas.drawBitmap(b, 0, 0, canvasPaint);
+        //TODO: fix scaling issues
         canvas.drawPath(drawPath, drawPaint);
     }
 
