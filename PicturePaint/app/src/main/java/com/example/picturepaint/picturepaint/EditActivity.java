@@ -186,4 +186,7 @@ public class EditActivity extends AppCompatActivity implements ColorPickerDialog
             return false;
         }
     }
+
+    // http://www.e-nature.ch/tech/saving-loading-bitmaps-to-the-android-device-storage-internal-external/
+    // https://stackoverflow.com/questions/17674634/saving-and-reading-bitmaps-images-from-internal-memory-in-android
 }
