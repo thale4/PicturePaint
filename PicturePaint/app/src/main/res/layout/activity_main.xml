@@ -31,6 +31,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_editor_absoluteY="211dp" />
+        tools:layout_editor_absoluteY="211dp"
+        android:onClick="loadImage"/>
 
 </android.support.constraint.ConstraintLayout>

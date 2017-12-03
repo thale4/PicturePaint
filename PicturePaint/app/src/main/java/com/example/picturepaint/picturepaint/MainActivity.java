@@ -2,6 +2,7 @@ package com.example.picturepaint.picturepaint;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -18,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -68,6 +70,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        SharedPreferences filenames = getSharedPreferences("filenames", 0);
+        SharedPreferences.Editor editor = filenames.edit();
+        int count = filenames.getInt("count", 0);
+        count++;
+        editor.putInt("count", count);
+        editor.putString("file" + count, mCurrentPhotoPath);
+        //Log.d("test", "put string to prefs: " + mCurrentPhotoPath);
+
+        editor.commit();
+
         Intent intent = new Intent(this, EditActivity.class);
         intent.putExtra("filename", mCurrentPhotoPath);
         startActivity(intent);
@@ -101,5 +113,10 @@ public class MainActivity extends AppCompatActivity {
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void loadImage(View view) {
+        Intent intent = new Intent(this, LoadImageActivity.class);
+        startActivity(intent);
     }
 }

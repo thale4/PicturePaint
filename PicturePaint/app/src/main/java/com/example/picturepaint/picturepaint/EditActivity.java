@@ -3,6 +3,7 @@ package com.example.picturepaint.picturepaint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -59,7 +60,6 @@ public class EditActivity extends AppCompatActivity implements ColorPickerDialog
         mCurrentColor = Color.BLACK;
         mImageView.setColor(mCurrentColor);
         mImageView.setBitmap(mBitmap);
-
 
         mBrushSize = (SeekBar)findViewById(R.id.brushSize);
         mBrushSize.setProgress(25);
@@ -145,6 +145,15 @@ public class EditActivity extends AppCompatActivity implements ColorPickerDialog
                 //tell the user it saved
                 Toast savedToast = Toast.makeText(getApplicationContext(), "Drawing saved!", Toast.LENGTH_SHORT);
                 savedToast.show();
+
+                SharedPreferences filenames = getSharedPreferences("filenames", 0);
+                SharedPreferences.Editor editor = filenames.edit();
+                int count = filenames.getInt("count", 0);
+                count++;
+                editor.putInt("count", count);
+                editor.putString("file" + count, mCurrentPhotoPath);
+                Log.d("test", "put string to prefs: " + mCurrentPhotoPath);
+                editor.commit();
             }
         });
         saveDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
@@ -179,7 +188,7 @@ public class EditActivity extends AppCompatActivity implements ColorPickerDialog
             // Writing the bitmap to the output stream
             image.compress(Bitmap.CompressFormat.PNG, 100, fos);
             fos.close();
-            Log.d("test", "saved image at: "+mFile.getPath());
+            Log.d("test", "saved image at: " + mFile.getPath());
             return true;
         } catch (Exception e) {
             Log.d("test", e.getMessage());

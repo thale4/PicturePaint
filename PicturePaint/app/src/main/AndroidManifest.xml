@@ -31,9 +31,10 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".EditActivity"
-            android:parentActivityName=".MainActivity"
-            />
+        <activity
+            android:name=".EditActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".LoadImageActivity"></activity>
     </application>
 
 </manifest>
