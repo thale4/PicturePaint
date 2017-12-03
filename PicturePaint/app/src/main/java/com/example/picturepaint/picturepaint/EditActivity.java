@@ -84,7 +84,7 @@ public class EditActivity extends AppCompatActivity implements ColorPickerDialog
         mBrushTransparency.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                mImageView.setTransparency(seekBar.getProgress());
+                mImageView.setTransparency(255-seekBar.getProgress());
             }
 
             @Override
@@ -107,6 +107,7 @@ public class EditActivity extends AppCompatActivity implements ColorPickerDialog
         Button colorButton = (Button) findViewById(R.id.brushColorButton);
         colorButton.setBackgroundColor(color);
         mImageView.setColor(color);
+        mImageView.setTransparency(255-mBrushTransparency.getProgress());
     }
 
     public void showHelp(View view) {
