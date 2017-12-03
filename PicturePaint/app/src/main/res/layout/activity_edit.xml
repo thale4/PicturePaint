@@ -65,14 +65,14 @@
         android:layout_marginTop="8dp"
         app:layout_constraintHorizontal_bias="0.503" />
 
-    <Button
-        android:layout_width="50dp"
-        android:layout_height="30dp"
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:srcCompat="@mipmap/ic_help"
         app:layout_constraintTop_toTopOf="@+id/brushColorButton"
         app:layout_constraintBottom_toBottomOf="@+id/brushColorButton"
         app:layout_constraintLeft_toRightOf="@+id/brushColorButton"
-        android:text="help"
-        android:textSize="10sp"
         android:onClick="showHelp"/>
 
     <Button

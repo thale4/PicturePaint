@@ -70,19 +70,21 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        SharedPreferences filenames = getSharedPreferences("filenames", 0);
-        SharedPreferences.Editor editor = filenames.edit();
-        int count = filenames.getInt("count", 0);
-        count++;
-        editor.putInt("count", count);
-        editor.putString("file" + count, mCurrentPhotoPath);
-        //Log.d("test", "put string to prefs: " + mCurrentPhotoPath);
+        if (requestCode == REQUEST_SAVE_IMAGE && resultCode == RESULT_OK) {
+            SharedPreferences filenames = getSharedPreferences("filenames", 0);
+            SharedPreferences.Editor editor = filenames.edit();
+            int count = filenames.getInt("count", 0);
+            count++;
+            editor.putInt("count", count);
+            editor.putString("file" + count, mCurrentPhotoPath);
+            //Log.d("test", "put string to prefs: " + mCurrentPhotoPath);
 
-        editor.commit();
+            editor.commit();
 
-        Intent intent = new Intent(this, EditActivity.class);
-        intent.putExtra("filename", mCurrentPhotoPath);
-        startActivity(intent);
+            Intent intent = new Intent(this, EditActivity.class);
+            intent.putExtra("filename", mCurrentPhotoPath);
+            startActivity(intent);
+        }
     }
 
     @Override
