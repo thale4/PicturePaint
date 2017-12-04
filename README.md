@@ -8,7 +8,7 @@ Can load an image on their device, edit and save it
 Allow user to change brush’s size, color, and transparency
 
 3. List of any known bugs that still remain  
-None
+Pictures taked on a real phone get distorted by scaling, not an issue with the emulator
 
 4. List of each teammate’s contributions 
 pair programming- all but scaling fix
