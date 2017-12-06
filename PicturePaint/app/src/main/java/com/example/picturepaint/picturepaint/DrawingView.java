@@ -1,20 +1,13 @@
 package com.example.picturepaint.picturepaint;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.View;
 import android.graphics.Bitmap;
 import android.graphics.Path;
 import android.view.MotionEvent;
-import android.widget.ImageView;
 
 public class DrawingView extends android.support.v7.widget.AppCompatImageView
 {

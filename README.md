@@ -1,18 +1,23 @@
-# PicturePaint
-1. Link to the repo on GitHub
-https://github.com/thale4/PicturePaint
+﻿# PicturePaint
 
-2. Brief summary of what the program does  
-Painting app that allows user to use the camera to take a picture and then draw on it and save that edited image
-Can load an image on their device, edit and save it 
-Allow user to change brush’s size, color, and transparency
+GitHub Link: https://github.com/thale4/PicturePaint
 
-3. List of any known bugs that still remain  
-Pictures taked on a real phone get distorted by scaling, not an issue with the emulator
+Description: PicturePaint is an app that allows users to use the camera to take a picture, 
+             draw on it, and save that edited image. Users may also decide to load a previously
+             drawn on image to re-edit. Paint tools exist for users to change the brush size, transparency,
+             and color.
 
-4. List of each teammate’s contributions 
-pair programming- all but scaling fix
-Heather- fixed to scale image but not what user draws
+Authors:
+	- Trevor Hale
+	- Heather Anderson
 
-5. The percentage of work performed by each teammate 
-50/50
+Known bugs: None.
+
+Extra Credit: None.
+
+Contributions:
+	- Entire app mostly, "pair-programmed."
+	- Trevor fixed an issue regarding default color (black) not being available; refactored code.
+	- Heather fixed an issue with emulator scaling to incorrect size, which affected drawing.
+
+Percentage of work by each teammate: 50/50

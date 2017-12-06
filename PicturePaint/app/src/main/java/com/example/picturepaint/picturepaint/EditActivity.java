@@ -6,14 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.net.Uri;
 import android.os.Environment;
-import android.provider.MediaStore;
-import android.support.v4.content.FileProvider;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -21,10 +15,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Toast;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -98,6 +90,7 @@ public class EditActivity extends AppCompatActivity implements ColorPickerDialog
 
     protected void pickColor(View view)
     {
+        mCurrentColor = Color.BLACK;
         ColorPickerDialog colorPickerDialog = new ColorPickerDialog(this, this, mCurrentColor);
         colorPickerDialog.show();
     }
@@ -112,8 +105,8 @@ public class EditActivity extends AppCompatActivity implements ColorPickerDialog
 
     public void showHelp(View view) {
         AlertDialog alertDialog = new AlertDialog.Builder(EditActivity.this).create();
-        alertDialog.setTitle("HELP");
-        alertDialog.setMessage("To choose a color, pick a color on the wheel and then press the color in the center");
+        alertDialog.setTitle("Help");
+        alertDialog.setMessage("Pick a color on the wheel, and then press the oval in the middle to finalize your decision!");
         alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -125,17 +118,14 @@ public class EditActivity extends AppCompatActivity implements ColorPickerDialog
 
     public void saveImage(View view) {
         AlertDialog.Builder saveDialog = new AlertDialog.Builder(this);
-        saveDialog.setTitle("Save drawing");
-        saveDialog.setMessage("Save drawing?");
+        saveDialog.setTitle("Save");
+        saveDialog.setMessage("Make changes to current image?");
 
-        File photoFile = null;
         try {
-            photoFile = createImageFile();
-        } catch (IOException ex) {
-            // Error occurred while creating the File
+            createImageFile();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        final Context context = this.getApplicationContext();
 
         saveDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener(){
             public void onClick(DialogInterface dialog, int which){
@@ -166,7 +156,7 @@ public class EditActivity extends AppCompatActivity implements ColorPickerDialog
     }
 
     // Creates image file name with a simple time stamp
-    protected File createImageFile() throws IOException {
+    protected void createImageFile() throws IOException {
         File pictureDirectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -176,7 +166,7 @@ public class EditActivity extends AppCompatActivity implements ColorPickerDialog
         mCurrentPhotoPath = newfile.getAbsolutePath();
         Log.d("test", mCurrentPhotoPath);
 
-        return newfile;
+        //return newfile;
     }
 
 
@@ -196,7 +186,4 @@ public class EditActivity extends AppCompatActivity implements ColorPickerDialog
             return false;
         }
     }
-
-    // http://www.e-nature.ch/tech/saving-loading-bitmaps-to-the-android-device-storage-internal-external/
-    // https://stackoverflow.com/questions/17674634/saving-and-reading-bitmaps-images-from-internal-memory-in-android
 }

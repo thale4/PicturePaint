@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.About:
                 AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
                 alertDialog.setTitle("About");
-                alertDialog.setMessage("Trevor Hale & Heather Anderson");
+                alertDialog.setMessage("Made by Trevor Hale & Heather Anderson");
                 alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {

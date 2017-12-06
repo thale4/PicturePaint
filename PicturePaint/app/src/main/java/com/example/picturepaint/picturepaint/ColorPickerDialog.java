@@ -20,7 +20,6 @@ import android.os.Bundle;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.*;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
