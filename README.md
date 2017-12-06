@@ -7,17 +7,15 @@ Description: PicturePaint is an app that allows users to use the camera to take
              drawn on image to re-edit. Paint tools exist for users to change the brush size, transparency,
              and color.
 
-Authors:
-	- Trevor Hale
-	- Heather Anderson
+Authors: Trevor Hale and Heather Anderson
 
 Known bugs: None.
 
 Extra Credit: None.
 
 Contributions:
-	- Entire app mostly, "pair-programmed."
-	- Trevor fixed an issue regarding default color (black) not being available; refactored code.
-	- Heather fixed an issue with emulator scaling to incorrect size, which affected drawing.
+	*Entire app mostly, "pair-programmed."
+	* Trevor fixed an issue regarding default color (black) not being available; refactored code.
+	* Heather fixed an issue with emulator scaling to incorrect size, which affected drawing.
 
 Percentage of work by each teammate: 50/50
