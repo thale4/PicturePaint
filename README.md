@@ -14,8 +14,9 @@ Known bugs: None.
 Extra Credit: None.
 
 Contributions:
-	*Entire app mostly, "pair-programmed."
-	* Trevor fixed an issue regarding default color (black) not being available; refactored code.
-	* Heather fixed an issue with emulator scaling to incorrect size, which affected drawing.
+	
+	+ Entire app mostly, "pair-programmed."
+	+ Trevor fixed an issue regarding default color (black) not being available; refactored code.
+	+ Heather fixed an issue with emulator scaling to incorrect size, which affected drawing.
 
 Percentage of work by each teammate: 50/50
